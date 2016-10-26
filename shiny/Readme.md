@@ -2,4 +2,4 @@
 
 Basic template for shiny apps
 
-> Deployed to: https://raul-arrabales.shinyapps.io/HelloShiny/ 
+> Deployed to: <a href="https://raul-arrabales.shinyapps.io/HelloShiny/" target="_blank">https://raul-arrabales.shinyapps.io/HelloShiny/</a>
