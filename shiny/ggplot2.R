@@ -28,4 +28,26 @@ ggplot(subset(housing, State %in% c("MA", "TX")),
            color=State))+
   geom_point()
 
+hp2001Q1 <- subset(housing, Date == 2001.25) 
+ggplot(hp2001Q1,
+       aes(y = Structure.Cost, x = Land.Value)) +
+  geom_point()
+
+ggplot(hp2001Q1,
+       aes(y = Structure.Cost, x = log(Land.Value))) +
+  geom_point()
+
+hp2001Q1$pred.SC <- predict(lm(Structure.Cost ~ log(Land.Value), data = hp2001Q1))
+
+p1 <- ggplot(hp2001Q1, aes(x = log(Land.Value), y = Structure.Cost))
+
+p1 + geom_point(aes(color = Home.Value)) +
+  geom_line(aes(y = pred.SC))
+
+p1 +
+  geom_point(aes(color = Home.Value)) +
+  geom_smooth()
+
+p1 + 
+  geom_text(aes(label=State), size = 3)
 
